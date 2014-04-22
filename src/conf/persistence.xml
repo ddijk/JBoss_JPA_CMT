@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-  <persistence-unit name="JBossDatasourcePU" transaction-type="JTA">
-    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <jta-data-source>jdbc/sample</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
-      <property name="eclipselink.ddl-generation" value="create-tables"/>
-    </properties>
-  </persistence-unit>
+    <persistence-unit name="JBossDatasourcePU" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <!--
+        <jta-data-source>jdbc/ACMDataSource</jta-data-source>
+        -->
+        <jta-data-source>java:jboss/datasources/PearlDS</jta-data-source>
+        <class>nl.Message</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="eclipselink.ddl-generation" value="none"/>
+            <property name="eclipselink.ddl-generation" value="none"/>
+            <property name="eclipselink.logging.level" value="FINEST"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.file" value="eclipselink.log"/>
+            <property name="eclipselink.query-results-cache" value="false"/>
+            <property name="eclipselink.cache.shared.default" value="false"/>
+            <!-- FOR JBOSS
+            -->
+            <property name="eclipselink.target-server" value="JBoss"/>
+        </properties>
+    </persistence-unit>
 </persistence>

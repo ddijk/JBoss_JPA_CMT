@@ -20,7 +20,7 @@ public class NewSessionBean {
 
     // Add business logic below. (Right-click in editor and choose
   // "Insert Code > Add Business Method")
-  @PersistenceContext
+  @PersistenceContext(name = "JBossDatasourcePU")
   EntityManager em;
 
   public void saveMessage(String tekst) {
@@ -28,6 +28,7 @@ public class NewSessionBean {
     Message msg = new Message();
     msg.setTekst(tekst);
     em.persist(msg);
+    System.out.println("message persisted");
   }
 
   public List<Message> getAllMessages() {

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-web>
   <context-root>/JBossDatasource</context-root>
+  <!--
+ <resource-ref>
+    <res-ref-name>jboss.naming.context.java.DefaultDS</res-ref-name>
+    <jndi-name>java:jboss/datasources/PearlDS</jndi-name>
+  </resource-ref>
+  -->
 </jboss-web>
